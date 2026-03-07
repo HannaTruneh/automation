@@ -27,7 +27,7 @@ public class Tirgul {
         userName = in.nextLine();
         System.out.println("הכנס את גילך:");
         userAge = in.nextInt();
-        System.out.println("שלום " + userName + ", גילך " + userAge + " שנים.");
+        System.out.println("שלום " + userName + ", אתה בן " + userAge);
 
 
         System.out.println("-----------------------------------");
@@ -107,14 +107,17 @@ public class Tirgul {
         System.out.println("-----------------------------------");
 
         // תרגיל 8
+        {
+            in.nextLine();
 
-        System.out.println("הכנס מילה:");
-        String word = in.nextLine();
+            System.out.println("הכנס מילה:");
+            String word = in.nextLine().trim();
 
-        System.out.println(word.length());
-        System.out.println(word.toUpperCase());
-        System.out.println(word.toLowerCase());
+            System.out.println("אורך המילה: " + word.length());
+            System.out.println("אות ראשונה: "+ word.charAt(0));
+            System.out.println(" אות אחרונה" + word.charAt(word.length() - 1) );
 
-        in.close();
+
+        }
     }
 }
