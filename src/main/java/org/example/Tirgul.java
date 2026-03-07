@@ -114,8 +114,8 @@ public class Tirgul {
             String word = in.nextLine().trim();
 
             System.out.println("אורך המילה: " + word.length());
-            System.out.println("אות ראשונה: "+ word.charAt(0));
-            System.out.println(" אות אחרונה" + word.charAt(word.length() - 1) );
+            System.out.println("אות ראשונה: " + word.charAt(0));
+            System.out.println("אות אחרונה: " + word.charAt(word.length() - 1));
 
 
         }
