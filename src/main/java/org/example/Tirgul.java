@@ -117,7 +117,8 @@ public class Tirgul {
             System.out.println("אות ראשונה: " + word.charAt(0));
             System.out.println("אות אחרונה: " + word.charAt(word.length() - 1));
 
-
         }
+
+        in.close();
     }
 }
