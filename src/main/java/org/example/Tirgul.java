@@ -6,7 +6,7 @@ public class Tirgul {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        String name = "Mike";
+        String name = "מייק";
         int age = 30;
         double height = 1.75;
         boolean isMarried = false;
@@ -14,8 +14,8 @@ public class Tirgul {
 
 
         // תרגיל 1
-        System.out.println("שמי " + name + ", אני בן " + age + " שנים, " +
-                "הגובה שלי הוא " + height + " מטר, מצב משפחתי: " + marriedStatus + ".");
+        System.out.println("שמי " + name + " אני בן " + age +
+                " הגובה שלי הוא " + height + " מטר, מצב משפחתי: " + marriedStatus + ".");
 
         System.out.println("-----------------------------------");
         // תרגיל 2
