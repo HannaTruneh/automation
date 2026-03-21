@@ -129,9 +129,6 @@ public class VehicleRental {
         customer.rentVehicle(car, 3);
         customer.rentVehicle(truck, 5);
         customer.rentVehicle(car, 2);
-        corporateCustomer.rentVehicle(truck, 4);
-        corporateCustomer.rentVehicle(car, 1);
-        corporateCustomer.rentVehicle(truck, 2);
 
         List<Vehicle> rented = customer.getRentedVehicles();
         List<Vehicle> coRented = corporateCustomer.getRentedVehicles();
@@ -140,19 +137,17 @@ public class VehicleRental {
         System.out.println("כמות רכבים מושכרים: " + totalRented);
 
 
-        System.out.println("רכבים של לקוח רגיל:");
+        System.out.println("רשימת רכבים מושכרים: ");
         for (Vehicle v : rented) {
             System.out.println("רכב: " + v.getClass().getSimpleName());
+            System.out.println("לוחית רישוי:  " + v.getLicensePlate());
+            System.out.println("יצרן: " + v.getMake());
+            System.out.println("דגם: " + v.getModel());
+            System.out.println("מחיר שכירות ליום: " + v.getRentalPrice());
         }
-
-        System.out.println("רכבים של לקוח עסקי:");
-        for (Vehicle v : coRented) {
-            System.out.println("רכב: " + v.getClass().getSimpleName());
-        }
-
-
-        System.out.println("השכרת מכונית  ליום: " + car.calculateRentalCost(1));
-        System.out.println("השכרת משאית ליום:  " + truck.calculateRentalCost(1));
+        System.out.println("מחירון:");
+        System.out.println("מחיר השכרת מכונית  ליום: " + car.calculateRentalCost(1) + " שח");
+        System.out.println("מחיר השכרת משאית ליום:  " + truck.calculateRentalCost(1) + " שח");
 
     }
 }
