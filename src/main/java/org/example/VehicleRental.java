@@ -77,12 +77,14 @@ public class VehicleRental {
     }
 
     public interface Customer {
+
         String getName();
 
         void rentVehicle(Vehicle vehicle, int days);
 
         List<Vehicle> getRentedVehicles();
     }
+
 
     public static class RegularCustomer implements Customer {
         private String name;
@@ -135,16 +137,18 @@ public class VehicleRental {
     }
 
     public static void main(String[] args) {
+
+        // יצירת רכבים ולקוחות
         Car car = new Car("123-45-678", "Toyota", "Corolla", "Sedan", 100);
         Truck truck = new Truck("987-65-432", "Volvo", "FH", 50, 200);
-        Customer customer = new RegularCustomer("");
-        Customer corporateCustomer = new CorporateCustomer("", "Company");
+        Customer customer = new RegularCustomer("יוסי");
+        Customer corporateCustomer = new CorporateCustomer("דנה", "כלל");
 
-
+        // השכרת רכבים ללקוחות
         customer.rentVehicle(car, 3);
         customer.rentVehicle(truck, 5);
 
-
+       //שימוש ברשימה כדי לשמור את הרכבים   שהושכרו
         List<Vehicle> rented = customer.getRentedVehicles();
 
 
