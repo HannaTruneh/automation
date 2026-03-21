@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tirgul2 {
+public class VehicleRental {
 
     public static abstract class Vehicle {
         private String licensePlate;
@@ -117,12 +117,42 @@ public class Tirgul2 {
     public static void main(String[] args) {
         Car car = new Car();
         Truck truck = new Truck();
+        Customer customer = new RegularCustomer("");
+        Customer corporateCustomer = new CorporateCustomer("", "Company");
+
 
         car.rentalPrice = 100;
         truck.rentalPrice = 200;
         truck.capacity = 50;
 
-        System.out.println("השכרת מכונית עבור 3 ימים: " + car.calculateRentalCost(3));
-        System.out.println("השכרת משאית עבור 3 ימים: " + truck.calculateRentalCost(3));
+
+        customer.rentVehicle(car, 3);
+        customer.rentVehicle(truck, 5);
+        customer.rentVehicle(car, 2);
+        corporateCustomer.rentVehicle(truck, 4);
+        corporateCustomer.rentVehicle(car, 1);
+        corporateCustomer.rentVehicle(truck, 2);
+
+        List<Vehicle> rented = customer.getRentedVehicles();
+        List<Vehicle> coRented = corporateCustomer.getRentedVehicles();
+
+        int totalRented = customer.getRentedVehicles().size() + corporateCustomer.getRentedVehicles().size();
+        System.out.println("כמות רכבים מושכרים: " + totalRented);
+
+
+        System.out.println("רכבים של לקוח רגיל:");
+        for (Vehicle v : rented) {
+            System.out.println("רכב: " + v.getClass().getSimpleName());
+        }
+
+        System.out.println("רכבים של לקוח עסקי:");
+        for (Vehicle v : coRented) {
+            System.out.println("רכב: " + v.getClass().getSimpleName());
+        }
+
+
+        System.out.println("השכרת מכונית  ליום: " + car.calculateRentalCost(1));
+        System.out.println("השכרת משאית ליום:  " + truck.calculateRentalCost(1));
+
     }
 }
