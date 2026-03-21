@@ -11,6 +11,15 @@ public class VehicleRental {
         private String model;
         protected double rentalPrice;
 
+
+        public Vehicle(String licensePlate, String make, String model, double rentalPrice) {
+            this.licensePlate = licensePlate;
+            this.make = make;
+            this.model = model;
+            this.rentalPrice = rentalPrice;
+        }
+
+
         public String getLicensePlate() {
             return licensePlate;
         }
@@ -31,6 +40,12 @@ public class VehicleRental {
     }
 
     public static class Car extends Vehicle {
+
+        public Car(String licensePlate, String make, String model, String type, double rentalPrice) {
+            super(licensePlate, make, model, rentalPrice);
+            this.type = type;
+        }
+
         private String type;
 
         public String getType() {
@@ -48,6 +63,11 @@ public class VehicleRental {
 
         public int getCapacity() {
             return capacity;
+        }
+
+        public Truck(String licensePlate, String make, String model, int capacity, double rentalPrice) {
+            super(licensePlate, make, model, rentalPrice);
+            this.capacity = capacity;
         }
 
         @Override
@@ -115,26 +135,17 @@ public class VehicleRental {
     }
 
     public static void main(String[] args) {
-        Car car = new Car();
-        Truck truck = new Truck();
+        Car car = new Car("123-45-678", "Toyota", "Corolla", "Sedan", 100);
+        Truck truck = new Truck("987-65-432", "Volvo", "FH", 50, 200);
         Customer customer = new RegularCustomer("");
         Customer corporateCustomer = new CorporateCustomer("", "Company");
 
 
-        car.rentalPrice = 100;
-        truck.rentalPrice = 200;
-        truck.capacity = 50;
-
-
         customer.rentVehicle(car, 3);
         customer.rentVehicle(truck, 5);
-        customer.rentVehicle(car, 2);
+
 
         List<Vehicle> rented = customer.getRentedVehicles();
-        List<Vehicle> coRented = corporateCustomer.getRentedVehicles();
-
-        int totalRented = customer.getRentedVehicles().size() + corporateCustomer.getRentedVehicles().size();
-        System.out.println("כמות רכבים מושכרים: " + totalRented);
 
 
         System.out.println("רשימת רכבים מושכרים: ");
