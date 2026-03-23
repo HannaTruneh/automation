@@ -49,9 +49,15 @@ public class VehicleRental {
 
     public static class Car extends Vehicle {
 
+        private String type;
+
         public Car(String licensePlate, String make, String model, String type, double rentalPrice) {
             super(licensePlate, make, model, rentalPrice);
             this.type = type;
+        }
+
+        public String getType() {
+            return type;
         }
 
         @Override
@@ -61,11 +67,6 @@ public class VehicleRental {
                     "סוג:  " + type;
         }
 
-        private String type;
-
-        public String getType() {
-            return type;
-        }
 
         @Override
         double calculateRentalCost(int days) {
