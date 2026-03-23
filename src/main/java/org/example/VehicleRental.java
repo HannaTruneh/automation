@@ -19,6 +19,14 @@ public class VehicleRental {
             this.rentalPrice = rentalPrice;
         }
 
+        @Override
+        public String toString() {
+            return "לוחית רישוי:  " + licensePlate + "\n" +
+                    "יצרן:  " + make + "\n" +
+                    "דגם:  " + model + "\n" +
+                    "מחיר השכרה ליום:  " + rentalPrice +
+                    " שח";
+        }
 
         public String getLicensePlate() {
             return licensePlate;
@@ -46,6 +54,13 @@ public class VehicleRental {
             this.type = type;
         }
 
+        @Override
+        public String toString() {
+            return " מכונית\n" +
+                    super.toString() + "\n" +
+                    "סוג:  " + type;
+        }
+
         private String type;
 
         public String getType() {
@@ -71,8 +86,37 @@ public class VehicleRental {
         }
 
         @Override
+        public String toString() {
+            return "משאית\n" +
+                    super.toString();
+        }
+
+        @Override
         double calculateRentalCost(int days) {
             return (rentalPrice * days) + capacity;
+        }
+    }
+
+    public static class Rental {
+        private Vehicle vehicle;
+        private int days;
+
+        public Rental(Vehicle vehicle, int days) {
+            this.vehicle = vehicle;
+            this.days = days;
+        }
+
+        public Vehicle getVehicle() {
+            return vehicle;
+        }
+
+        public int getDays() {
+            return days;
+        }
+
+        @Override
+        public String toString() {
+            return vehicle.toString() + "\n" + "ימים: " + days;
         }
     }
 
@@ -82,13 +126,15 @@ public class VehicleRental {
 
         void rentVehicle(Vehicle vehicle, int days);
 
-        List<Vehicle> getRentedVehicles();
+        List<Rental> getRentedVehicles();
     }
 
 
     public static class RegularCustomer implements Customer {
+
         private String name;
-        private List<Vehicle> rentedVehicles = new ArrayList<>();
+
+        private List<Rental> rentedVehicles = new ArrayList<>();
 
         public RegularCustomer(String name) {
             this.name = name;
@@ -101,11 +147,11 @@ public class VehicleRental {
 
         @Override
         public void rentVehicle(Vehicle vehicle, int days) {
-            rentedVehicles.add(vehicle);
+            rentedVehicles.add(new Rental(vehicle, days));
         }
 
         @Override
-        public List<Vehicle> getRentedVehicles() {
+        public List<Rental> getRentedVehicles() {
             return rentedVehicles;
         }
     }
@@ -113,7 +159,7 @@ public class VehicleRental {
     public static class CorporateCustomer implements Customer {
         private String name;
         private String companyName;
-        private List<Vehicle> rentedVehicles = new ArrayList<>();
+        private List<Rental> rentedVehicles = new ArrayList<>();
 
         public CorporateCustomer(String name, String companyName) {
             this.name = name;
@@ -127,14 +173,16 @@ public class VehicleRental {
 
         @Override
         public void rentVehicle(Vehicle vehicle, int days) {
-            rentedVehicles.add(vehicle);
+            // אפשר לחשב הנחה כאן אם רוצים (כרגע שומרים בדיוק כמו רגיל)
+            rentedVehicles.add(new Rental(vehicle, days));
         }
 
         @Override
-        public List<Vehicle> getRentedVehicles() {
+        public List<Rental> getRentedVehicles() {
             return rentedVehicles;
         }
     }
+
 
     public static void main(String[] args) {
 
@@ -148,21 +196,17 @@ public class VehicleRental {
         customer.rentVehicle(car, 3);
         customer.rentVehicle(truck, 5);
 
-       //שימוש ברשימה כדי לשמור את הרכבים   שהושכרו
-        List<Vehicle> rented = customer.getRentedVehicles();
+        //שימוש ברשימה כדי לשמור את הרכבים   שהושכרו
+        List<Rental> rented = customer.getRentedVehicles();
 
 
         System.out.println("רשימת רכבים מושכרים: ");
-        for (Vehicle v : rented) {
-            System.out.println("רכב: " + v.getClass().getSimpleName());
-            System.out.println("לוחית רישוי:  " + v.getLicensePlate());
-            System.out.println("יצרן: " + v.getMake());
-            System.out.println("דגם: " + v.getModel());
-            System.out.println("מחיר שכירות ליום: " + v.getRentalPrice());
-        }
-        System.out.println("מחירון:");
-        System.out.println("מחיר השכרת מכונית  ליום: " + car.calculateRentalCost(1) + " שח");
-        System.out.println("מחיר השכרת משאית ליום:  " + truck.calculateRentalCost(1) + " שח");
+        for (Rental r : rented) {
+            System.out.println(r.vehicle);
+            System.out.println("עלות השכרה:  " + r.vehicle.calculateRentalCost(r.days));
+            System.out.println("---------------------");
 
+
+        }
     }
 }
