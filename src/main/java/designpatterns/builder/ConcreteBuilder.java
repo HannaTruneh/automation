@@ -1,4 +1,4 @@
-package org.example.designpatterns.builder;
+package designpatterns.builder;
 
 class ConcreteBuilder implements Builder {
     private Product product;

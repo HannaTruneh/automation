@@ -1,4 +1,4 @@
-package org.example.designpatterns.builder;
+package designpatterns.builder;
 
 import java.util.ArrayList;
 import java.util.List;

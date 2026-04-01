@@ -1,4 +1,4 @@
-package org.example.designpatterns.singleton;
+package designpatterns.singleton;
 
 class Library {
 

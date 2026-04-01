@@ -1,7 +1,7 @@
-package org.example.designpatterns.singleton;
+package designpatterns.singleton;
 
 
-class Singleton {
+class Client {
     public static void main(String[] args) {
         Library library = Library.getInstance();
 
