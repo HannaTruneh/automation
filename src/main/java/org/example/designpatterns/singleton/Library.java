@@ -1,4 +1,4 @@
-package org.example;
+package org.example.designpatterns.singleton;
 
 class Library {
 
@@ -19,15 +19,5 @@ class Library {
 
     public void browABook() {
         System.out.println("Borrowing a book from the library");
-    }
-}
-
-
-class Singleton {
-    public static void main(String[] args) {
-        Library library = Library.getInstance();
-
-        //  שימוש במופע של library
-        library.browABook();
     }
 }
