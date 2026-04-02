@@ -17,7 +17,7 @@ class ControlPanel {
     }
 
     public void activateCruiseControl() {
-        // שולט במהירות של המכונית ושומר מרכב מרכבים אחרים
+        // שולט במהירות של המכונית ושומר מרחק מרכבים אחרים
         cruiseControlSystem.activate();
     }
 
