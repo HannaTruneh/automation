@@ -8,7 +8,7 @@ public class Client {
         controlPanel.activateCruiseControl();
         controlPanel.avoidCollision();
 
-        // חיבור של כל הפעולות יחד - קח אותי הביתה
+        // חיבור של כל הפעולות יחד  קח אותי הביתה
         controlPanel.driveToHomeAndPark();
     }
 }
