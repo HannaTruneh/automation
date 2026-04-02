@@ -1,4 +1,4 @@
-package designpatterns.Factorymethod;
+package designpatterns.factorymethod;
 
 public class ParkVisitor {
     public static void main(String[] args) {

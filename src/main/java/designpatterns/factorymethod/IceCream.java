@@ -1,4 +1,4 @@
-package designpatterns.Factorymethod;
+package designpatterns.factorymethod;
 
  class IceCream extends Product {
 

@@ -1,4 +1,4 @@
-package designpatterns.Factorymethod;
+package designpatterns.factorymethod;
 
 abstract class FoodStall {
 
