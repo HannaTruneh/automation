@@ -1,4 +1,4 @@
-package cleancode.lsp;
+package cleancode.liskov;
 
 import java.util.ArrayList;
 import java.util.List;

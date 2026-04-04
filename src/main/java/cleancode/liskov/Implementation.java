@@ -1,6 +1,4 @@
-package cleancode.lsp;
-
-import java.util.List;
+package cleancode.liskov;
 
 public class Implementation {
 

@@ -1,4 +1,4 @@
-package cleancode.lsp;
+package cleancode.liskov;
 
 public class VIPWaitingList extends WaitingList {
 

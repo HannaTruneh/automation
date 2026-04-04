@@ -1,4 +1,4 @@
-package cleancode.ocp;
+package cleancode.openclosed;
 
 public class PercentageDiscount implements Discount {
 
